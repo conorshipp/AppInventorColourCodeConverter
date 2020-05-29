@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>App Inventor Colour Code Converter</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+    <style>
+      #container {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>App Inventor Colour Code Converter</h1>
+      <p>Use this tool to convert HEX colour codes into numeric values used in App Inventor</p>
+      <div>
+        <p style="display: inline;">#</p>
+        <input id="input" type="text" placeholder="ffffff" maxlength="6" style="display: inline;"></input>
+      </div>
+      <p id="result"></p>
+      <button id="convert">Convert</button>
+    </div>
+  </body>
+  
+  <script type="text/javascript">
+    function hexToNumericValue(hex) {
+      return -1 * (Math.pow(16, 6) - parseInt(hex, 16));
+    }
+    
+    $("#convert").on("click", function() {
+      $("#result").text(hexToNumericValue($("input").val()));
+    });
+  </script>
+</html>
