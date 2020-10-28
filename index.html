@@ -33,5 +33,13 @@
     $("#convert").on("click", function() {
       $("#result").text(hexToNumericValue($("input").val()));
     });
+
+    var $input = $('input');
+    $input.keyup(function(e) {
+      var max = 6;
+      if ($input.val().length > max) {
+        $input.val($input.val().substr(0, max));
+      }
+    });
   </script>
 </html>
