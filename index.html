@@ -31,7 +31,13 @@
     }
     
     $("#convert").on("click", function() {
-      $("#result").text(hexToNumericValue($("input").val()));
+      var value = $("input").val();
+      var regExp = /^[0-9A-Fa-f]+$/;
+      if (!regExp.exec(value)) {
+        alert("Input contains invalid characters. Only HEX characters are allowed.");
+        return;
+      }
+      $("#result").text(hexToNumericValue(value));
     });
 
     var $input = $('input');
